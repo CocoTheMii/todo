@@ -648,15 +648,13 @@ Submitting the final project should be done by sending a link of your Github rep
 
 ### Grading
 
-Grading will be based out of 25 marks, on the following criteria:
+Grading will be based out of 20 marks, on the following criteria:
 
 - 8 Marks: Level of effort
 - 4 Marks: Proper indentation of all code (HTML, CSS, JavaScript)
 - 2 Marks: Submitting everything working and "completed"
 - 4 Marks: Achieving goals that you have chosen to complete.
 - 2 Marks: Polished finish (having the final project layout usable, clean and readable)
-- 3 Marks: Intermediate level criteria
-- 2 Marks: Advanced level criteria
 
 ### Junior Level: Required
 
@@ -664,24 +662,5 @@ Grading will be based out of 25 marks, on the following criteria:
   - Using HTML and CSS styling that we've learnt through the G2T program.  Style the todo application.  This can include changing layouts, using a different table format, using list items.
     - Feel free to write your own CSS rules, using [bootstrap](https://react-bootstrap.github.io/) or [https://tailwindcss.com/docs/guides/create-react-app](tailwind) are good starting points for designs
 
-- Publish your project to the Internet (Netlify or Vercel are both free services for this).
-  - Vercel: [https://vercel.com](https://vercel.com): You can use your Github account for authentication.
-  - Netlify: [https://netlify.com](https://netlify.com)
-
 - Add filtering to the todo application
   - Allow the user to filter the list of tasks to only display completed, versus incomplete tasks.
-
-### Intermediate Level: Recommended
-
-If you choose to submit the intermediate level criteria and you are unable to complete, please submit the work you had been working on, as we will review and grade based on level of effort and the level of completion.
-
-- Convert the frontend reactjs application to use redux for state
-  - Redux: [https://redux.js.org/](https://redux.js.org/)
-
-### Advanced Level: Bonus Points
-
-If you choose to submit the advanced level criteria and you are unable to complete, please submit the work you had been working on, as we will review and grade based on level of effort and the level of completion.
-
-- Add authentication and authorization to the application.
-  - An example of authentication and authorization would be that any non-authenticated user should be able to see your todo items, but they should not be able to add, delete or modify them.
-  - Another example of authentication and authorization would be that any non-authenticated user should not be able to see anything but a login page.  Once logged in, they should be able to add, delete and modify todo items.
