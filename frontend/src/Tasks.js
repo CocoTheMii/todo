@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 
-import './Tasks.css';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
 import initialTasks from './InitialTasks';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Table from 'react-bootstrap/Table'
 
 function Tasks() {
   const [tasks, setTasks] = useState(initialTasks);
@@ -84,7 +86,7 @@ function Tasks() {
     <>
       <div className="Tasks">
         <h1>Tasks</h1>
-        <table>
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>Todo ID</th>
@@ -99,7 +101,7 @@ function Tasks() {
               return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} setTodoCompleted={setTodoCompleted} />
             })}
           </tbody>
-        </table>
+        </Table>
       </div>
 
       <div>

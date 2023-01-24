@@ -1,4 +1,5 @@
-import './Todo.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Button from 'react-bootstrap/Button'
 
 function translateCompleted(complete) { 
   if (complete)
@@ -15,8 +16,8 @@ function Todo(props) {
     <tr>
         <td>{todo.id}</td>
         <td>{todo.title}</td>
-        <td><a href="#todo" onClick={(e) => { setTodoCompleted(todo)}}>{translateCompleted(todo.completed)}</a></td>  
-        <td><button onClick={() => deleteTodo(todo.id)}>Delete</button></td>
+        <td><Button variant="info" href="#todo" onClick={(e) => { setTodoCompleted(todo)}}>{translateCompleted(todo.completed)}</Button></td>  
+        <td><Button variant="outline-danger" onClick={() => deleteTodo(todo.id)}>Delete</Button></td>
     </tr>
   );
 }
