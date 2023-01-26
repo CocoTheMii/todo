@@ -3,13 +3,11 @@ import { useState, useEffect } from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 
-import initialTasks from './InitialTasks';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table'
 
 function Tasks() {
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = useState([]);
 
   const TODO_BASE_URL = 'http://localhost:3000/todos';
 
