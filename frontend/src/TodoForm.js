@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
 function TodoForm(props) {
@@ -15,17 +16,19 @@ function TodoForm(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Add a new task</h3>
-
-      <input
+    <Form
+      onSubmit={handleSubmit}
+      style={{display: "flex", marginBottom: "1rem"}}
+    >
+      <Form.Control
         type="text"
         ref={inputRef}
         placeholder="What needs to be done?"
+        style={{marginRight: ".5rem"}}
       />
 
       <Button type="submit">Add</Button>
-    </form>
+    </Form>
   );
 }
 

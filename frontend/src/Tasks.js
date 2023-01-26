@@ -82,8 +82,13 @@ function Tasks() {
 
   return (
     <>
+      <h1>Tasks</h1>
+
+      <div>
+        <TodoForm addTodo={addTodo} />
+      </div>
+      
       <div className="Tasks">
-        <h1>Tasks</h1>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -100,10 +105,6 @@ function Tasks() {
             })}
           </tbody>
         </Table>
-      </div>
-
-      <div>
-        <TodoForm addTodo={addTodo} />
       </div>
     </>
   );
