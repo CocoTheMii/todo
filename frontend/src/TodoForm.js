@@ -24,7 +24,7 @@ function TodoForm(props) {
         placeholder="What needs to be done?"
       />
 
-      <Button variant="success" type="submit">Add</Button>
+      <Button type="submit">Add</Button>
     </form>
   );
 }

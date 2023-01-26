@@ -1,11 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button'
 
-function translateCompleted(complete) { 
-  if (complete)
-    return "Yes";
+var buttonColor;
 
+function translateCompleted(complete) { 
+  if (complete) {
+    buttonColor = "success";
+    return "Yes";
+  } else {
+  buttonColor = "secondary";
   return "No";
+  }
 }
 
 function Todo(props) {
@@ -16,7 +21,7 @@ function Todo(props) {
     <tr>
         <td>{todo.id}</td>
         <td>{todo.title}</td>
-        <td><Button variant="info" href="#todo" onClick={(e) => { setTodoCompleted(todo)}}>{translateCompleted(todo.completed)}</Button></td>  
+        <td><Button variant={buttonColor} href="#todo" onClick={(e) => { setTodoCompleted(todo)}}>{translateCompleted(todo.completed)}</Button></td>  
         <td><Button variant="outline-danger" onClick={() => deleteTodo(todo.id)}>Delete</Button></td>
     </tr>
   );
