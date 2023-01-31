@@ -22,6 +22,10 @@ function Tasks() {
   }, [])
 
   function addTodo(task) {
+    if (task == "") {
+      return;
+    }
+
     const postBody = JSON.stringify({
       title: task,
       completed: false,
