@@ -96,10 +96,10 @@ function Tasks() {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Todo ID</th>
+            <th style={{width: "10%"}}>Task #</th>
               <th>Title</th>
-              <th>Completed</th>
-              <th>Actions</th>
+              <th style={{width: "15%"}}>Completed</th>
+              <th style={{width: "15%"}}>Actions</th>
             </tr>
           </thead>
 

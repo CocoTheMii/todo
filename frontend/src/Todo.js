@@ -18,7 +18,7 @@ function Todo(props) {
   const { deleteTodo, setTodoCompleted } = props;
 
   return (
-    <tr>
+    <tr style={{verticalAlign: "middle"}}>
         <td>{todo.id}</td>
         <td>{todo.title}</td>
         <td><Button variant={buttonColor} href="#todo" onClick={(e) => { setTodoCompleted(todo)}}>{translateCompleted(todo.completed)}</Button></td>  
