@@ -106,9 +106,9 @@ function Tasks() {
       
       <div>
         <ButtonGroup style={{marginBottom: "1rem", width: "100%"}}>
-          <Button variant="outline-secondary" style={{width: "33.33%"}} onClick={() => changeFilter("all")} active={filter=="all"}>All</Button>
-          <Button variant="outline-secondary" style={{width: "33.33%"}} onClick={() => changeFilter("completed")} active={filter=="completed"}>Completed</Button>
-          <Button variant="outline-secondary" style={{width: "33.33%"}} onClick={() => changeFilter("incomplete")} active={filter=="incomplete"}>Incomplete</Button>
+          <Button variant="outline-secondary" style={{width: "calc(100%/3)"}} onClick={() => changeFilter("all")} active={filter=="all"}>All</Button>
+          <Button variant="outline-secondary" style={{width: "calc(100%/3)"}} onClick={() => changeFilter("completed")} active={filter=="completed"}>Completed</Button>
+          <Button variant="outline-secondary" style={{width: "calc(100%/3)"}} onClick={() => changeFilter("incomplete")} active={filter=="incomplete"}>Incomplete</Button>
         </ButtonGroup>
       </div>
 
@@ -141,7 +141,7 @@ function Tasks() {
 
       <Modal show={deleteId!=null} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Delete Task</Modal.Title>
+          <Modal.Title>Delete task</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Are you sure you want to delete task {deleteId}?</p>
@@ -149,7 +149,7 @@ function Tasks() {
           : taskToDelete.title}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="outline-secondary" onClick={handleClose}>
             Cancel
           </Button>
           <Button autoFocus variant="danger" onClick={() => {
