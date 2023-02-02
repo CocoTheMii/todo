@@ -5,9 +5,12 @@ import TodoForm from './TodoForm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table'
+import Button from "react-bootstrap/Button"
+import ButtonGroup from "react-bootstrap/ButtonGroup"
 
 function Tasks() {
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState("all");
 
   const TODO_BASE_URL = 'http://localhost:3000/todos';
 
@@ -84,6 +87,10 @@ function Tasks() {
     })
   }
 
+  function changeFilter(newFilter) {
+    setFilter(newFilter)
+  }
+
   return (
     <>
       <h1>Tasks</h1>
@@ -92,6 +99,14 @@ function Tasks() {
         <TodoForm addTodo={addTodo} />
       </div>
       
+      <div>
+        <ButtonGroup style={{marginBottom: "1rem", width: "100%"}}>
+          <Button variant="outline-secondary" style={{width: "33.33%"}} onClick={() => changeFilter("all")} active={filter=="all"}>All</Button>
+          <Button variant="outline-secondary" style={{width: "33.33%"}} onClick={() => changeFilter("completed")} active={filter=="completed"}>Completed</Button>
+          <Button variant="outline-secondary" style={{width: "33.33%"}} onClick={() => changeFilter("incomplete")} active={filter=="incomplete"}>Incomplete</Button>
+        </ButtonGroup>
+      </div>
+
       <div className="Tasks">
         <Table striped bordered hover>
           <thead>
@@ -104,7 +119,15 @@ function Tasks() {
           </thead>
 
           <tbody>
-            {tasks.map((todo) => {
+            {tasks.filter((task) => {
+              if (filter == "completed") {
+                return task.completed;
+              } else if (filter == "incomplete") {
+                return !task.completed;
+              } else {
+                return true;
+              }
+            }).map((todo) => {
               return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} setTodoCompleted={setTodoCompleted} />
             })}
           </tbody>
