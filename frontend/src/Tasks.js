@@ -7,10 +7,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table'
 import Button from "react-bootstrap/Button"
 import ButtonGroup from "react-bootstrap/ButtonGroup"
+import Modal from 'react-bootstrap/Modal';
 
 function Tasks() {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
+  const [deleteId, setDelete] = useState(null);
+  const taskToDelete = tasks.find((task) => task.id == deleteId);
+
+  const handleClose = () => setDelete(null);
 
   const TODO_BASE_URL = 'http://localhost:3000/todos';
 
@@ -111,7 +116,7 @@ function Tasks() {
         <Table striped bordered hover>
           <thead>
             <tr>
-            <th style={{width: "10%"}}>Task #</th>
+              <th style={{width: "10%"}}>Task #</th>
               <th>Title</th>
               <th style={{width: "15%"}}>Completed</th>
               <th style={{width: "15%"}}>Actions</th>
@@ -128,11 +133,33 @@ function Tasks() {
                 return true;
               }
             }).map((todo) => {
-              return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} setTodoCompleted={setTodoCompleted} />
+              return <Todo key={todo.id} todo={todo} deleteTodo={setDelete} setTodoCompleted={setTodoCompleted} />
             })}
           </tbody>
         </Table>
       </div>
+
+      <Modal show={deleteId!=null} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete Task</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Are you sure you want to delete task {deleteId}?</p>
+          <p style={{paddingLeft: "1rem", borderLeft: "3px solid lightgrey", fontStyle: "italic"}}>{taskToDelete === undefined?'' 
+          : taskToDelete.title}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button autoFocus variant="danger" onClick={() => {
+            deleteTodo(deleteId);
+            setDelete(null);
+            }}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
